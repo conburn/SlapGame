@@ -1,0 +1,53 @@
+body {
+    background-color: seashell;
+    background-image: url('http://cdn-images.9cloud.us/9/u8ryp_2118647823.gif');
+}
+
+.container {
+    background-color: lightskyblue;
+}
+
+.container h1 {
+    font-family: 'Russo One', sans-serif;
+    color: orangered;
+    text-align: center;
+    font-size: 70px;
+}
+
+.container h4 {
+    font-family: 'Russo One', sans-serif;
+    color: darkblue;
+    text-align: center;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+img {
+    display: block;
+    margin: auto;
+    border-width: 10px;
+    border-color: orangered;
+    border-style: solid;
+
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-family: 'Russo One', sans-serif;
+    color: orangered;
+    text-align: center;
+    font-size: 30px;
+}
+
+.stat p {
+    font-family: 'Russo One', sans-serif;
+    color: darkblue;
+    text-align: center;
+    font-size: 23px;
+}

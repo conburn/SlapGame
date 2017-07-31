@@ -119,10 +119,6 @@ function burn(statId) {
         jerryBurn.health = 0
         jerryBurn.hitCount = 0
     }
-    if (jerryBurn.hitCount <= 0) {
-        
-        jerryBurn.hitCount = 0
-    }   
 }
 
 function newBegin(statId) {
@@ -179,69 +175,20 @@ function clickGo(yourChoice) {
 
     switch (yourChoice) {
         case 'Kick':
-            if (compChoice === 'Kick') {
-                commentary.innerHTML = 'Yowza! An even blow to both sides.'
-                break
-            }
-            if (compChoice === 'Punch') {
-                you.punch
+            if (compChoice === 'Kick', 'Punch', 'Choke') {
                 commentary.innerHTML = 'Jannett from HR seems fairly disturbed by this brawl... good.'
-                break
-            }
-            if (compChoice === 'Choke') {
-                commentary.innerHTML = 'Food isn\'t the only thing Jerry steals - he also steals your LIFE!'
-                break
-            }
-            if (compChoice === 'Compliment') {
-                commentary.innerHTML = 'A stern kick from you yields a compliment - seems like Jerry is a little confused.'
-                break
-            }
-            if (compChoice === 'Burn') {
-                commentary.innerHTML = 'Jerry has burned down the office. An absolute psychopath after all.'
                 break
             }
 
         case 'Punch':
-            if (compChoice === 'Kick') {
-                commentary.innerHTML = 'Jerry hit hard, but you hit harder.'
-                break
-            }
-            if (compChoice === 'Punch') {
-                commentary.innerHTML = 'Oh my! A formidable fit from both sides.'
-                break
-            }
-            if (compChoice === 'Choke') {
-                commentary.innerHTML = 'Hey, nice punch, but Jerry sure does know how to grab a neck.'
-                break
-            }
-            if (compChoice === 'Compliment') {
-                commentary.innerHTML = 'A stern punch from you yields a compliment - seems like Jerry is a little confused.'
-                break
-            }
-            if (compChoice === 'Burn') {
-                commentary.innerHTML = 'Jerry has burned down the office. An absolute psychopath after all.'
+            if (compChoice === 'Kick', 'Punch', 'Choke') {
+                commentary.innerHTML = 'Ow, right in the face!'
                 break
             }
 
         case 'Choke':
-            if (compChoice === 'Kick') {
-                commentary.innerHTML = 'You, my friend, are brutal. Jerry is but a mite.'
-                break
-            }
-            if (compChoice === 'Punch') {
-                commentary.innerHTML = 'Wow! Incredible. Yes. Hmm. This is violent.'
-                break
-            }
-            if (compChoice === 'Choke') {
-                commentary.innerHTML = 'An even-keeled display of absolute brutality!'
-                break
-            }
-            if (compChoice === 'Compliment') {
-                commentary.innerHTML = 'Not sure how Jerry could even open his vocal chords with your hands around his neck.'
-                break
-            }
-            if (compChoice === 'Burn') {
-                commentary.innerHTML = 'Jerry has burned down the office. An absolute psychopath after all.'
+            if (compChoice === 'Kick', 'Punch', 'Choke') {
+                commentary.innerHTML = 'You, my friend, are brutal.'
                 break
             }
 
@@ -258,55 +205,15 @@ function clickGo(yourChoice) {
                 commentary.innerHTML = 'How nice of you! I\'m sure your friendly demeanor will be real useful in your grave.'
                 break
             }
-            if (compChoice === 'Compliment') {
-                commentary.innerHTML = 'Come on, we didn\'t come here for fun and games - this is a brawl! Get punching!'
-                break
-            }
-            if (compChoice === 'Burn') {
-                commentary.innerHTML = 'Jerry has burned down the office. An absolute psychopath after all.'
-                break
-            }
 
         case 'Burn':
-            if (compChoice === 'Kick') {
-                commentary.innerHTML = 'You complete psychopath! You\'re going away for a long time, sonny boy.'
-                break
-            }
-            if (compChoice === 'Punch') {
-                commentary.innerHTML = 'You complete psychopath! You\'re going away for a long time, sonny boy.'
-                break
-            }
-            if (compChoice === 'Choke') {
-                commentary.innerHTML = 'You complete psychopath! You\'re going away for a long time, sonny boy.'
-                break
-            }
-            if (compChoice === 'Compliment') {
-                commentary.innerHTML = 'You complete psychopath! You\'re going away for a long time, sonny boy.'
-                break
-            }
-            if (compChoice === 'Burn') {
+            if (compChoice === 'Kick', 'Punch', 'Choke', 'Compliment', 'Burn') {
                 commentary.innerHTML = 'You complete psychopath! You\'re going away for a long time, sonny boy.'
                 break
             }
 
         case 'Reset':
-            if (compChoice === 'Kick') {
-                commentary.innerHTML = 'Can you beat Jerry in the biggest brawl the office has ever seen? Guess we\'ll see...'
-                break
-            }
-            if (compChoice === 'Punch') {
-                commentary.innerHTML = 'Can you beat Jerry in the biggest brawl the office has ever seen? Guess we\'ll see...'
-                break
-            }
-            if (compChoice === 'Choke') {
-                commentary.innerHTML = 'Can you beat Jerry in the biggest brawl the office has ever seen? Guess we\'ll see...'
-                break
-            }
-            if (compChoice === 'Compliment') {
-                commentary.innerHTML = 'Can you beat Jerry in the biggest brawl the office has ever seen? Guess we\'ll see...'
-                break
-            }
-            if (compChoice === 'Burn') {
+            if (compChoice === 'Kick', 'Punch', 'Choke', 'Compliment', 'Burn') {
                 commentary.innerHTML = 'Can you beat Jerry in the biggest brawl the office has ever seen? Guess we\'ll see...'
                 break
             }

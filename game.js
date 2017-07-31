@@ -26,15 +26,15 @@ function draw(stats) {
     for (var i = 0; i < stats.length; i++) {
         var stat = stats[i]
         var statusIndex = 0
-        if(stat.health < 81 && stat.health >=61) {
+        if (stat.health < 81 && stat.health >= 61) {
             statusIndex = 1
-        } else if(stat.health <=60 && stat.health >=41) {
+        } else if (stat.health <= 60 && stat.health >= 41) {
             statusIndex = 2
-        } else if(stat.health <=40 && stat.health >=21) {
+        } else if (stat.health <= 40 && stat.health >= 21) {
             statusIndex = 3
-        } else if(stat.health <=20 && stat.health >=1) {
+        } else if (stat.health <= 20 && stat.health >= 1) {
             statusIndex = 4
-        } else if(stat.health === 0) {
+        } else if (stat.health === 0) {
             statusIndex = 5
         }
         template += `
@@ -70,27 +70,44 @@ draw(fightThings.stats)
 function verbal(statId) {
     var jerryVerb = findFightById(fightThings.stats, statId)
     jerryVerb.health++
+    if (jerryVerb.health >= 100) {
+        jerryVerb.health = 100
+    }
     draw(fightThings.stats)
 }
 
 function kick(statId) {
     var jerryKick = findFightById(fightThings.stats, statId)
     jerryKick.hitCount++
-    jerryKick.health = jerryKick.health-2
+    jerryKick.health = jerryKick.health - 2
+    if (jerryKick.health <= 0) {
+        jerryKick.health = 0
+        jerryKick.hitCount = 0
+    }
+
     draw(fightThings.stats)
 }
 
 function punch(statId) {
     var jerryPunch = findFightById(fightThings.stats, statId)
     jerryPunch.hitCount++
-    jerryPunch.health = jerryPunch.health-5
+    jerryPunch.health = jerryPunch.health - 5
+    if (jerryPunch.health <= 0) {
+        jerryPunch.health = 0
+        jerryPunch.hitCount = 0
+
+    }
     draw(fightThings.stats)
 }
 
 function choke(statId) {
     var jerryChoke = findFightById(fightThings.stats, statId)
     jerryChoke.hitCount++
-    jerryChoke.health = jerryChoke.health-10
+    jerryChoke.health = jerryChoke.health - 10
+    if (jerryChoke.health <= 0) {
+        jerryChoke.health = 0
+        jerryChoke.hitCount = 0
+    }
     draw(fightThings.stats)
 }
 
@@ -98,6 +115,14 @@ function burn(statId) {
     var jerryBurn = findFightById(fightThings.stats, statId)
     jerryBurn.health = 0
     draw(fightThings.stats)
+    if (jerryBurn.health <= 0) {
+        jerryBurn.health = 0
+        jerryBurn.hitCount = 0
+    }
+    if (jerryBurn.hitCount <= 0) {
+        
+        jerryBurn.hitCount = 0
+    }   
 }
 
 function newBegin(statId) {
@@ -110,7 +135,7 @@ function newBegin(statId) {
 function findFightById(statArray, statId) {
     for (var i = 0; i < statArray.length; i++) {
         var stat = statArray[i]
-        if(statId === statId) {
+        if (statId === statId) {
             return stat
         }
     }
@@ -128,16 +153,16 @@ var comm = document.getElementById('commentary')
 
 //chance the (thing).addEventListener if it doesn't work
 
-kic.addEventListener('click', function() {
+kic.addEventListener('click', function () {
     clickGo('Kick')
 })
-punc.addEventListener('click', function() {
+punc.addEventListener('click', function () {
     clickGo('Punch')
 })
-chok.addEventListener('click', function() {
+chok.addEventListener('click', function () {
     clickGo('Choke')
 })
-comp.addEventListener('click', function() {
+comp.addEventListener('click', function () {
     clickGo('Compliment')
 })
 bur.addEventListener('click', function () {
@@ -149,7 +174,7 @@ rese.addEventListener('click', function () {
 
 function clickGo(yourChoice) {
     var choices = ['Kick', 'Punch', 'Choke']
-    var mathStuff = Math.floor(Math.random() *3)
+    var mathStuff = Math.floor(Math.random() * 3)
     var compChoice = choices[mathStuff]
 
     switch (yourChoice) {
@@ -175,9 +200,7 @@ function clickGo(yourChoice) {
                 commentary.innerHTML = 'Jerry has burned down the office. An absolute psychopath after all.'
                 break
             }
-    }
 
-    switch (yourChoice) {
         case 'Punch':
             if (compChoice === 'Kick') {
                 commentary.innerHTML = 'Jerry hit hard, but you hit harder.'
@@ -199,9 +222,7 @@ function clickGo(yourChoice) {
                 commentary.innerHTML = 'Jerry has burned down the office. An absolute psychopath after all.'
                 break
             }
-    }
 
-    switch (yourChoice) {
         case 'Choke':
             if (compChoice === 'Kick') {
                 commentary.innerHTML = 'You, my friend, are brutal. Jerry is but a mite.'
@@ -223,9 +244,7 @@ function clickGo(yourChoice) {
                 commentary.innerHTML = 'Jerry has burned down the office. An absolute psychopath after all.'
                 break
             }
-    }
 
-    switch (yourChoice) {
         case 'Compliment':
             if (compChoice === 'Kick') {
                 commentary.innerHTML = 'What are you doing? I thought you hated this guy! Remember? Tear him to pieces!'
@@ -247,9 +266,7 @@ function clickGo(yourChoice) {
                 commentary.innerHTML = 'Jerry has burned down the office. An absolute psychopath after all.'
                 break
             }
-    }
 
-    switch (yourChoice) {
         case 'Burn':
             if (compChoice === 'Kick') {
                 commentary.innerHTML = 'You complete psychopath! You\'re going away for a long time, sonny boy.'
@@ -271,9 +288,7 @@ function clickGo(yourChoice) {
                 commentary.innerHTML = 'You complete psychopath! You\'re going away for a long time, sonny boy.'
                 break
             }
-    }
 
-    switch (yourChoice) {
         case 'Reset':
             if (compChoice === 'Kick') {
                 commentary.innerHTML = 'Can you beat Jerry in the biggest brawl the office has ever seen? Guess we\'ll see...'
